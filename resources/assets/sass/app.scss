@@ -1,0 +1,30 @@
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+$maincolor : #b66e14;
+
+
+body{
+  background-color: #ffc300;
+}
+
+.thumbnail{
+  background-color: $maincolor;
+  img{
+    max-height: 300px;
+    margin-top: 20px;
+  }
+  .btn{
+  margin-left: 10px;
+  }
+}
+
+.panel-heading , .panel-footer{
+  background-color: $maincolor;
+}
+
+.panel-footer{
+  margin-top: 10px;
+}
+
+.btn-form {
+  margin-top:20px;
+}

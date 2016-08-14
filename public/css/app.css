@@ -1,0 +1,21 @@
+body {
+  background-color: #ffc300; }
+
+.thumbnail {
+  background-color: #b66e14; }
+  .thumbnail img {
+    max-height: 300px;
+    margin-top: 20px; }
+  .thumbnail .btn {
+    margin-left: 10px; }
+
+.panel-heading, .panel-footer {
+  background-color: #b66e14; }
+
+.panel-footer {
+  margin-top: 10px; }
+
+.btn-form {
+  margin-top: 20px; }
+
+/*# sourceMappingURL=app.css.map */
