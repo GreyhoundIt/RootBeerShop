@@ -25,21 +25,21 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
 
-              <li><a href="{{ route('shop.shoppingCart') }}"><span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span> Shopping Cart</a></li>
+              <li><a href="{{ route('shop.shoppingCart') }}"><span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a></li>
 
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('/login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                    <li><a href="{{ url('/register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
                 @else
                   @if (Auth::user()->isAdmin)
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                          Admin <span class="caret"></span>
+                          <i class="fa fa-cog" aria-hidden="true"></i> Admin <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('products.create') }}">Create new Product</a></li>
+                            <li><a href="{{ route('products.create') }}"><i class="fa fa-pencil" aria-hidden="true"></i> Create new Product</a></li>
 
                         </ul>
                     </li>
