@@ -7,10 +7,20 @@ use Auth;
 
 class Order extends Model
 {
+    //set up relationships
     public function user()
     {
       return $this->belongsTo('App\User');
     }
+
+    /**
+     * Send conformation email
+     *
+     * @param  string  $name
+     * @param  string  $card
+     * @param  string  $key
+     * 
+     */
 
     public function sendEmail($name,$card,$key){
 

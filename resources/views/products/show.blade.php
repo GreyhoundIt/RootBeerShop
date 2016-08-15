@@ -28,8 +28,10 @@
          <div class="panel-footer clearfix">
            <span class="price">£ {{ $product->price }}</span><br>
            <a href="{{ route('shop.addToCart' , $product->id) }}" class="btn btn-default pull-right" role="button">Add to Cart</a>
+           <!-- Check if user is logged in and is an Admin -->
            @if (Auth::check() && Auth::user()->isAdmin)
              <a href="{{ route('products.edit' , $product->id) }}" class="btn btn-warning " role="button">Edit Product</a>
+             <!-- Form to delete product -->
              {!! Form::open([
                  'method' => 'DELETE',
                  'route' => ['products.destroy', $product->id]

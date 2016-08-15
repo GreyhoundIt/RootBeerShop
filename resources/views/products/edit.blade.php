@@ -7,6 +7,7 @@
 @section('content')
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
+      <!-- Display Errors -->
       @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -16,8 +17,10 @@
             </ul>
         </div>
       @endif
+
       <h1>Editing {{ $product->name }}</h1>
       <hr>
+        <!-- Form Model Binding -->
       {!! Form::model($product, ['route' => ['products.update', $product->id], 'method'=>'patch']) !!}
 
         {{ Form::label('name', 'Name:') }}
@@ -35,7 +38,7 @@
         {{ Form::submit('Update Product', array('class' => 'btn btn-default btn-lg btn-block btn-form')) }}
         {!! Html::linkRoute('products.show', 'Cancel', array($product->id), array('class' => 'btn btn-warning btn-lg btn-block btn-form')) !!}
       {!! Form::close() !!}
-
+  <!-- Form to delete product -->
       {!! Form::open([
           'method' => 'DELETE',
           'route' => ['products.destroy', $product->id]

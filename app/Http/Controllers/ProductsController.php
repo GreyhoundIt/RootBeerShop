@@ -38,6 +38,7 @@ class ProductsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\ProductRequest  $request
+     * validation done in ProductRequest
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request, Product $product)

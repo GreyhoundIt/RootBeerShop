@@ -11,6 +11,20 @@
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
+## Todo
+
+Better way of dealing with currency.
+Photo upload package instead of url links to images
+Expand Admin area.
+Add catogories or different types of products.
+Impliment a Payment API.
+
+## Comments
+
+Seed file to create the products.
+
+Conformation Email is sent ( using file driver so is sent to storage/logs/laravel).
+
 Photos and description taken from (http://travisneilson.com/2012/08/05/rootbeer-tasting.html).
 
 FORM and HTML helpers added with (https://laravelcollective.com/docs/5.2/html).

@@ -10,8 +10,10 @@
 
 @section('content')
   <h1>All Products</h1>
+    <!-- Take $products and split into chucks of 3 to fit design -->
   @foreach ($products->chunk(3) as $productsChunk)
     <div class="row">
+        <!-- Use the 'chunks' then to fill in the template -->
       @foreach ($productsChunk as $product)
         <div class="col-md-4">
           <div class="thumbnail">
@@ -23,9 +25,10 @@
                 <span class="price">£ {{ $product->price }}</span><br>
                 <a href="{{ route('shop.addToCart' , $product->id)}}" class="btn btn-default pull-right" role="button">Add to Cart</a>
                 <a href="{{ route('products.show' , $product->id)}}" class="btn btn-primary pull-right" role="button">See More</a>
-
+                  <!-- Check if user is logged in and is an Admin -->
                   @if (Auth::check() && Auth::user()->isAdmin)
                     <a href="{{ route('products.edit' , $product->id) }}" class="btn btn-warning pull-right edit-btn" role="button">Edit Product</a>
+                    <!-- Form to delete product -->
                     {!! Form::open([
                         'method' => 'DELETE',
                         'route' => ['products.destroy', $product->id]

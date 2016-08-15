@@ -7,7 +7,7 @@ Checkout
 @section('content')
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-
+      <!-- Display Errors -->
       @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -18,7 +18,7 @@ Checkout
         </div>
       @endif
 
-
+      <!-- Form using Laravelcollective helpers -->
       {!! Form::open(array('route' => 'shop.checkout')) !!}
         {{ Form::label('name', 'Name:') }}
         {{ Form::text('name', null, array('class' => 'form-control')) }}
@@ -35,6 +35,7 @@ Checkout
 
         <div class="row">
           <div class="col-md-4">
+            <!-- could be a password feild? -->
             {{ Form::label('cvv', 'CVV:') }}
             {{ Form::number('cvv', null, array('class' => 'form-control')) }}
           </div>

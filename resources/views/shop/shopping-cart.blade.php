@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <!-- If there is items in the cart -->
   @if(Session::has('cart'))
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -21,6 +22,7 @@
           <tbody>
           @foreach ($products as $product)
             <tr>
+                <!-- $product is an associtave array -->
               <th>{{$product['item']['name']}}</th>
               <th>{{'£ ' . $product['item']['price']}}</th>
               <th>
@@ -40,6 +42,8 @@
     </div>
     <div class="row">
       <div class="col-md-8 col-md-offset-2 clearfix">
+          <!-- make price into 2 decimal places hard coding £ is bad -->
+            <!-- TODO better way of displaying price for different currencies -->
         <h3 class="pull-right">Total Price £ {{ number_format($total, 2) }}</h3>
       </div>
       <div class="col-md-8 col-md-offset-2 ">
@@ -53,6 +57,7 @@
 
 
   @else
+      <!-- cart is empty -->
     <div class="row">
       <div class="col-md-8 col-md-offset-2 clearfix">
         <strong>Your Cart is Empty</strong>

@@ -13,12 +13,13 @@ use Session;
 use Auth;
 use Mail;
 
+
 class ShopController extends Controller
 {
   public function addToCart(Request $request, $id) {
       $product = Product::find($id);
       $oldCart = Session::has('cart') ? Session::get('cart') : null;
-      $cart = new Cart($oldCart);
+      $cart = new Cart($oldCart);  //always recreate cart to keep data consistant
       $cart->add($product, $product->id);
       $request->session()->put('cart', $cart);
       return redirect()->route('shop.shoppingCart');
@@ -29,6 +30,7 @@ public function reduceByOne($id)
   $oldCart = Session::has('cart') ? Session::get('cart') : null;
   $cart = new Cart($oldCart);
   $cart->reduceByOne($id);
+  //check to see if cart is empty or not
   if(count($cart->items) > 0 ){
     Session::put('cart', $cart);
   }
@@ -45,7 +47,7 @@ public function reduceByOne($id)
     $oldCart = Session::has('cart') ? Session::get('cart') : null;
     $cart = new Cart($oldCart);
     $cart->removeItem($id);
-
+//check to see if cart is empty or not
     if(count($cart->items) > 0 ){
       Session::put('cart', $cart);
     }
@@ -91,18 +93,18 @@ public function reduceByOne($id)
 
     $order = new Order();
 
-    $order->cart = serialize($cart);
+    $order->cart = serialize($cart); //serialize cart object
     $order->name = $request->input('name');
     $order->address = $request->input('address');
     $order->postcode = $request->input('postcode');
-    $order->cardnumber = bcrypt($request->input('cardnumber'));
+    $order->cardnumber = bcrypt($request->input('cardnumber')); // not to be used in production just for demo
     $order->lastdigits = substr($request->input('cardnumber'),-4);
     $order->order_key = rand(); //'API generated key'
 
     Auth::user()->orders()->save($order);
-    Session::forget('cart');
+    Session::forget('cart');//clear session of the cart.
 
-    $order->sendEmail($order->name,$order->lastdigits,$order->order_key);
+    $order->sendEmail($order->name,$order->lastdigits,$order->order_key); //send conformation email
 
     return redirect()->route('shop.success');
 

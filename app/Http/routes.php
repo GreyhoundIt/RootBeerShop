@@ -16,8 +16,6 @@ Route::get('/', 'ProductsController@index');
 
 Route::auth();
 
-
-
 Route::resource('/products','ProductsController');
 
 

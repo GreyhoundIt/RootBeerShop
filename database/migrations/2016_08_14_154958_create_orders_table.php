@@ -19,9 +19,9 @@ class CreateOrdersTable extends Migration
             $table->string('name', 255);
             $table->string('address', 255);
             $table->string('postcode', 15);
-            $table->string('cardnumber');
+            $table->string('cardnumber'); // string so we can encrypy or hash
             $table->string('lastdigits');
-            $table->integer('order_key');
+            $table->integer('order_key'); // random number but API's sopmetimes return keys
             $table->timestamps();
         });
     }

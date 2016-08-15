@@ -7,6 +7,7 @@
 @section('content')
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
+      <!-- Display Errors -->
       @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -18,7 +19,7 @@
       @endif
       <h1>Create New Product</h1>
       <hr>
-
+      <!-- Form using Laravelcollective helpers -->
       {!! Form::open(array('route' => 'products.store')) !!}
         {{ Form::label('name', 'Name:') }}
         {{ Form::text('name', null, array('class' => 'form-control')) }}
