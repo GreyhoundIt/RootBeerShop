@@ -14,3 +14,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 Photos and description taken from (http://travisneilson.com/2012/08/05/rootbeer-tasting.html).
 
 FORM and HTML helpers added with (https://laravelcollective.com/docs/5.2/html).
+
+Shake animation with csshake (https://elrumordelaluz.github.io/csshake/)
