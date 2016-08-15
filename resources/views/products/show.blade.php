@@ -26,8 +26,17 @@
         {{ $product->description }}
 
          <div class="panel-footer clearfix">
-           <span class="price">£ {{ $product->price }}</span>
+           <span class="price">£ {{ $product->price }}</span><br>
            <a href="{{ route('shop.addToCart' , $product->id) }}" class="btn btn-default pull-right" role="button">Add to Cart</a>
+           @if (Auth::check() && Auth::user()->isAdmin)
+             <a href="{{ route('products.edit' , $product->id) }}" class="btn btn-warning " role="button">Edit Product</a>
+             {!! Form::open([
+                 'method' => 'DELETE',
+                 'route' => ['products.destroy', $product->id]
+             ]) !!}
+                 {!! Form::submit('Delete this Product?', ['class' => 'btn btn-danger btn-lg btn-block btn-form']) !!}
+             {!! Form::close() !!}
+           @endif
          </div>
 
       </div>
