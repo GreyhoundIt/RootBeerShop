@@ -22,7 +22,7 @@ Impliment a Payment API.
 ## Comments
 
 Seed file to create the products.
-To create an admin user create normal user then use a DB GUI to chance isAdmin to true.
+To create an admin user create normal user then use a DB GUI to change isAdmin to true.
 Conformation Email is sent ( using file driver so is sent to storage/logs/laravel).
 
 Photos and description taken from (http://travisneilson.com/2012/08/05/rootbeer-tasting.html).
